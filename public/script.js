@@ -12361,8 +12361,8 @@ var AdsTable = function (_React$Component) {
 				'div',
 				null,
 				this.props.loaded && _react2.default.createElement(
-					_fixedDataTable.Table,
-					_extends({
+					'div',
+					_extends({ className: 'table',
 						rowHeight: 50,
 						headerHeight: 50,
 						rowsCount: dataList.rows.length,
