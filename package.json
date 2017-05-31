@@ -5,12 +5,14 @@
   "main": "entry.js",
   "scripts": {
     "test": "jest",
-    "serve": "webpack-dev-server --progress --colors",
-    "build": "webpack"
+    "dev": "webpack-dev-server --progress --colors",
+    "build": "webpack",
+    "serve": "webpack && node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "express": "^4.15.3",
     "fixed-data-table": "^0.6.4",
     "react": "^15.5.4",

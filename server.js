@@ -109,5 +109,5 @@ app.get('/metrics', (req,res) => {
 		});
 });
 app.listen(app.get('port'), function() {
-  console.log('server running.');
+  console.log('Node server is now listening on port',app.get('port'));
 });
