@@ -1,7 +1,7 @@
 {
-  "name": "chrome-ext-react",
+  "name": "hyfn-tables",
   "version": "0.0.1",
-  "description": "Chrome Extension boilerplate using React.",
+  "description": "Hyfn tables",
   "main": "entry.js",
   "scripts": {
     "test": "jest",
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.3",
     "fixed-data-table": "^0.6.4",
     "react": "^15.5.4",
     "react-dom": "^15.4.2"
