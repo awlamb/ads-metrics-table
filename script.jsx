@@ -138,7 +138,7 @@ class AdsTable extends React.Component {
 			}
 		]
 		}
-	}
+	};
     this.state = {
       dataList: metrics,
       ads: ads,
