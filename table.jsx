@@ -35,8 +35,7 @@ export default class AdsTable extends React.Component {
 					rowsCount={dataList.rows.length}
 					width={this.state.width}
 					minWidth={500}
-					height={500}
-					{...this.props}>
+					height={500}>
 						<Column
 							header={<Cell>Ad Name</Cell>}
 							cell={<NameCell data={dataList} col="remote_id" ads={ads} />}
