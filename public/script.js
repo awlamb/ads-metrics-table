@@ -12296,8 +12296,6 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(34);
@@ -12357,19 +12355,17 @@ var AdsTable = function (_React$Component) {
 		value: function render() {
 			var dataList = this.props.metrics;
 			var ads = this.props.ads;
-			return _react2.default.createElement(
-				'div',
-				null,
-				this.props.loaded && _react2.default.createElement(
-					'div',
-					_extends({ className: 'table',
+			var loaded = this.props.loaded;
+			if (loaded) {
+				return _react2.default.createElement(
+					_fixedDataTable.Table,
+					{
 						rowHeight: 50,
 						headerHeight: 50,
 						rowsCount: dataList.rows.length,
 						width: this.state.width,
 						minWidth: 500,
-						height: 500
-					}, this.props),
+						height: 500 },
 					_react2.default.createElement(_fixedDataTable.Column, {
 						header: _react2.default.createElement(
 							_fixedDataTable.Cell,
@@ -12391,8 +12387,10 @@ var AdsTable = function (_React$Component) {
 							width: 200
 						});
 					})
-				)
-			);
+				);
+			} else {
+				return _react2.default.createElement('div', null);
+			}
 		}
 	}]);
 
@@ -13245,25 +13243,22 @@ module.exports = function spread(callback) {
 "use strict";
 
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+var _fixedDataTable = __webpack_require__(42);
 
-var FixedDataTable = __webpack_require__(42);
-var React = __webpack_require__(34);
-var Table = FixedDataTable.Table,
-    Column = FixedDataTable.Column,
-    Cell = FixedDataTable.Cell;
+var _react = __webpack_require__(34);
 
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var NameCell = function NameCell(_ref) {
   var rowIndex = _ref.rowIndex,
       data = _ref.data,
       col = _ref.col,
-      ads = _ref.ads,
-      props = _objectWithoutProperties(_ref, ['rowIndex', 'data', 'col', 'ads']);
-
-  return React.createElement(
-    Cell,
-    props,
+      ads = _ref.ads;
+  return _react2.default.createElement(
+    _fixedDataTable.Cell,
+    null,
     ads.find(function (x) {
       return x.remote_id === data.rows[rowIndex][col];
     }).name
@@ -13273,12 +13268,10 @@ var NameCell = function NameCell(_ref) {
 var MetricCell = function MetricCell(_ref2) {
   var rowIndex = _ref2.rowIndex,
       data = _ref2.data,
-      col = _ref2.col,
-      props = _objectWithoutProperties(_ref2, ['rowIndex', 'data', 'col']);
-
-  return React.createElement(
-    Cell,
-    props,
+      col = _ref2.col;
+  return _react2.default.createElement(
+    _fixedDataTable.Cell,
+    null,
     data.rows[rowIndex][col]
   );
 };
@@ -13365,11 +13358,7 @@ var TableContainer = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(_table2.default, { loaded: this.state.loaded, ads: this.state.ads, metrics: this.state.metrics })
-			);
+			return _react2.default.createElement(_table2.default, { loaded: this.state.loaded, ads: this.state.ads, metrics: this.state.metrics });
 		}
 	}]);
 
