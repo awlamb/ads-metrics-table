@@ -1,6 +1,6 @@
 var FixedDataTable = require('fixed-data-table');
 var React = require('react');
-const {Table, Column, Cell} = FixedDataTable;
+const {Cell} = FixedDataTable;
 
 const NameCell = ({rowIndex, data, col,ads, ...props}) => (
   <Cell {...props}>

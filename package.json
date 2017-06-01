@@ -15,6 +15,7 @@
     "axios": "^0.16.1",
     "express": "^4.15.3",
     "fixed-data-table": "^0.6.4",
+    "jest": "^20.0.4",
     "react": "^15.5.4",
     "react-dom": "^15.4.2"
   },
