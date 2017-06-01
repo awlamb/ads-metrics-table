@@ -27,17 +27,16 @@ export default class AdsTable extends React.Component {
 	render() {
 		var dataList = this.props.metrics;
 		var ads = this.props.ads;
-		return (
-			<div>
-				{ this.props.loaded && 
-					<Table
-						rowHeight={50}
-						headerHeight={50}
-						rowsCount={dataList.rows.length}
-						width={this.state.width}
-						minWidth={500}
-						height={500}
-						{...this.props}>
+		if(this.props.loaded) {
+			return (
+				<Table
+					rowHeight={50}
+					headerHeight={50}
+					rowsCount={dataList.rows.length}
+					width={this.state.width}
+					minWidth={500}
+					height={500}
+					{...this.props}>
 						<Column
 							header={<Cell>Ad Name</Cell>}
 							cell={<NameCell data={dataList} col="remote_id" ads={ads} />}
@@ -51,9 +50,12 @@ export default class AdsTable extends React.Component {
 								width={200}
 							/>
 						)}
-					</Table>
-				}
-			</div>
-		);
+				</Table>
+			);
+		} else {
+			return (
+				<div></div>
+			)
+		}
 	}
 }

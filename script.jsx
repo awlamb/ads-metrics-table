@@ -36,9 +36,7 @@ class TableContainer extends React.Component {
 	}
 	render() {
 		return(
-			<div>
 			<AdsTable loaded={this.state.loaded} ads={this.state.ads} metrics={this.state.metrics} />
-		</div>
 		)
 	}
 }
