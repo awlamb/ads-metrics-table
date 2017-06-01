@@ -53,8 +53,7 @@ export default class AdsTable extends React.Component {
 				</Table>
 			);
 		} else {
-			return (
-				<div></div>
+			return (<span />
 			)
 		}
 	}
